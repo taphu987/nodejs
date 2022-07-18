@@ -1,36 +1,41 @@
 {
-  "name": "blog",
-  "version": "1.0.0",
-  "description": "",
-  "main": "src/index.js",
-  "scripts": {
-    "start": "nodemon --inspect src/index.js",
-    "watch": "node-sass --watch src/resources/scss/app.scss src/public/css/app.css",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/taphu987/nodejs.git"
-  },
-  "keywords": [
-    "blog",
-    "nodejs",
-    "blog",
-    "nodejs"
-  ],
-  "author": "phutn",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/taphu987/nodejs_blog/issues"
-  },
-  "homepage": "https://github.com/taphu987/nodejs_blog#readme",
-  "dependencies": {
-    "express": "^4.18.1",
-    "express-handlebars": "^6.0.6"
-  },
-  "devDependencies": {
-    "morgan": "^1.10.0",
-    "node-sass": "^7.0.1",
-    "nodemon": "^2.0.19"
-  }
+    "name": "blog",
+    "version": "1.0.0",
+    "description": "",
+    "main": "src/index.js",
+    "scripts": {
+        "beautify": "prettier --single-quote --trailing-comma all --write docs package.json 'src/**/*.{js,json,scss}'",
+        "start": "nodemon --inspect src/index.js",
+        "watch": "node-sass --watch src/resources/scss/app.scss src/public/css/app.css",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/taphu987/nodejs.git"
+    },
+    "keywords": [
+        "blog",
+        "nodejs",
+        "blog",
+        "nodejs"
+    ],
+    "author": "phutn",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/taphu987/nodejs_blog/issues"
+    },
+    "homepage": "https://github.com/taphu987/nodejs_blog#readme",
+    
+    "dependencies": {
+        "express": "^4.18.1",
+        "express-handlebars": "^6.0.6"
+    },
+    "devDependencies": {
+        "husky": "^8.0.1",
+        "lint-staged": "^13.0.3",
+        "morgan": "^1.10.0",
+        "node-sass": "^7.0.1",
+        "nodemon": "^2.0.19",
+        "prettier": "^2.7.1"
+    }
 }
