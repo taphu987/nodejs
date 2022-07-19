@@ -15,5 +15,8 @@
     "tabWidth": 4,
     "trailingComma": "all",
     "useTabs": false,
-    "vueIndentScriptAndStyle": false
+    "vueIndentScriptAndStyle": false,
+    "editor.formatOnSave": true,
+    "html.format.indentHandlebars": true,
+    "html.format.enable": true
 }
