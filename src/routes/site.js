@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 
-const siteController = require("../app/controllers/SiteController.js");
+const siteController = require("../app/controllers/SiteController");
 
 // newsController.index;
 
