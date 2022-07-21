@@ -1,73 +1,129 @@
 <div class="mt-4">
-    <h3>My courses</h3>
-
+    <div>
+        <h3>
+            My courses
+        </h3>
+        <a href="/me/trash/courses">
+            Trash bin
+        </a>
+    </div>
     <table class="table mt-4">
         <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">Course:</th>
-                <th scope="col">Level</th>
-                <th scope="col" colspan="2">Creation time</th>
+                <th scope="col">
+                    #
+                </th>
+                <th scope="col">
+                    Course:
+                </th>
+                <th scope="col">
+                    Level
+                </th>
+                <th scope="col" colspan="2">
+                    Creation time
+                </th>
             </tr>
         </thead>
-
         <tbody>
             {{#each courses}}
                 <tr>
-                    <th scope="row">{{sum @index 1}}</th>
-                    <td>{{this.name}}</td>
-                    <td>{{this.level}}</td>
-                    <td>{{this.createdAt}}</td>
+                    <th scope="row">
+                        {{sum @index 1}}
+                    </th>
                     <td>
-                        <a href="/courses/{{this._id}}/edit" class="btn btn-warning mr-2">Edit</a>
-                        <a href="" class="btn btn-danger" data-toggle="modal" data-id="{{this._id}}" data-target="#delete-course-modal">Delete</a>
+                        {{this.name}}
+                    </td>
+                    <td>
+                        {{this.level}}
+                    </td>
+                    <td>
+                        {{this.createdAt}}
+                    </td>
+                    <td>
+                        <a
+                            href="/courses/{{this._id}}/edit"
+                            class="btn btn-warning mr-2"
+                        >
+                            Edit
+                        </a>
+                        <a
+                            href=""
+                            class="btn btn-danger"
+                            data-toggle="modal"
+                            data-id="{{this._id}}"
+                            data-target="#delete-course-modal"
+                        >
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            {{else}}
+                <tr>
+                    <td colspan="5" class="text-center">
+                        You haven't posted any course yet!!!
+                        <br />
+                        <a href="/courses/create">
+                            Please post your course!!!!
+                        </a>
                     </td>
                 </tr>
             {{/each}}
         </tbody>
     </table>
 </div>
-
-{{!-- Confirm delete course --}}
+{{! Confirm delete course }}
 <div id="delete-course-modal" class="modal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Delete this course???</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>You want to delete this course, SURE?</p>
-      </div>
-      <div class="modal-footer">
-        <button id="btn-delete-course" type="button" class="btn btn-primary btn-danger">Delete course</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-      </div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    Delete this course???
+                </h5>
+                <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                    aria-label="Close"
+                >
+                    <span aria-hidden="true">
+                        ×
+                    </span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    You want to delete this course, SURE?
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button
+                    id="btn-delete-course"
+                    type="button"
+                    class="btn btn-primary btn-danger"
+                >
+                    Delete course
+                </button>
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-dismiss="modal"
+                >
+                    Cancel
+                </button>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
-{{!-- Delete hiden form --}}
+{{! Delete hiden form }}
 <form name="delete-course-form" method="POST"></form>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var courseId;
-        var deleteForm = document.forms["delete-course-form"];
-        var btnDeleteCourse = document.getElementById("btn-delete-course");
-
-        // When dialog confirm clicked
-        $("#delete-course-modal").on("show.bs.modal", function (event) {
-            var button = $(event.relatedTarget);
-            courseId = button.data("id");
-        });
-
-        // When delete course button is clicked
-        btnDeleteCourse.onclick = function () {
-            deleteForm.action = "/courses/" + courseId + "?_method=DELETE";
-            deleteForm.submit();
-        }
-    })
+    document.addEventListener("DOMContentLoaded", function () { var courseId;
+    var deleteForm = document.forms["delete-course-form"]; var btnDeleteCourse =
+    document.getElementById("btn-delete-course");
+    $("#delete-course-modal").on("show.bs.modal", function (event) { var button
+    = $(event.relatedTarget); courseId = button.data("id"); });
+    btnDeleteCourse.onclick = function () { deleteForm.action = "/courses/" +
+    courseId + "?_method=DELETE"; deleteForm.submit(); } })
 </script>
