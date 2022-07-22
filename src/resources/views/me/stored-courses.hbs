@@ -49,15 +49,15 @@
                 </th>
                 <th scope="col">
                     Course
-                    <a href="?_sort&column=name&type=desc">
-                        <span class="oi oi-elevator"></span>
-                    </a>
+                    {{{sortable "name" _sort}}}
                 </th>
                 <th scope="col">
                     Level
+                    {{{sortable "level" _sort}}}
                 </th>
                 <th scope="col" colspan="2">
                     Creation time
+                    {{{sortable "createdAt" _sort}}}
                 </th>
             </tr>
         </thead>
