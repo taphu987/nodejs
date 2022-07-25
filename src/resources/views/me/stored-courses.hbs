@@ -44,8 +44,10 @@
     <table class="table mt-4">
         <thead>
             <tr>
-                <th scope="col" colspan="2">
-                    #
+                <th scope="col"></th>
+                <th scope="col">
+                    Id
+                    {{{sortable "_id" _sort}}}
                 </th>
                 <th scope="col">
                     Course
@@ -74,8 +76,9 @@
                             />
                         </div>
                     </td>
+
                     <th scope="row">
-                        {{sum @index 1}}
+                        {{this._id}}
                     </th>
                     <td>
                         {{this.name}}
